@@ -1,0 +1,76 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <style>
+        .profile-container {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .profile-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .profile-picture {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-username {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .profile-email {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .profile-form {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .profile-form h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .profile-update-button {
+            margin-top: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+
+    <section class="content-section">
+        <div class="profile-container">
+            <img class="profile-picture" src="{{ user.profile.image.url }}" alt="Profile Picture">
+            <div class="profile-info">
+                <h3 class="profile-title">Info</h3>
+                <h2 class="profile-username">{{ user.username }}</h2>
+                <p class="profile-email">{{ user.email }}</p>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

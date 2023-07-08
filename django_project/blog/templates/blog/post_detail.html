@@ -1,0 +1,53 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <style>
+        .author-image {
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .article-metadata {
+            margin-bottom: 10px;
+        }
+
+        .author-link {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .article-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .article-photo {
+            max-width: 100%;
+            max-height: 400px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <img class="rounded-circle author-image" src="{{ object.auther.profile.image.url }}" alt="Author Image">
+                <a class="mr-2 author-link" href="#">{{ object.auther }}</a>
+                <small class="text-muted">{{ object.date_posted|date:"d F, Y" }}</small>
+            </div>
+            <h2 class="article-title">{{ object.title }}</h2>
+            {% if object.photo %}
+                <img class="article-photo" src="{{ object.photo.url }}" alt="Post Photo">
+            {% endif %}
+            <p class="article-content">{{ object.content }}</p>
+        </div>
+    </article>
+{% endblock content %}
